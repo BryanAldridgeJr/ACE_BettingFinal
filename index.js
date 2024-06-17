@@ -7,10 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(cors({
-    origin: 'https://ace-betting-front.vercel.app/', // Your React app's URL
-    credentials: true,
-}));
+app.use(cors());
 
 const db = mysql.createConnection({
     host: process.env.DBHOST,
