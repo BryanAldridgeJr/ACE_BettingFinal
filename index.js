@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(cors({
-    origin: 'http://localhost:3000', // Your React app's URL
+    origin: 'https://ace-betting-front.vercel.app/', // Your React app's URL
     credentials: true,
 }));
 
