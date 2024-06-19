@@ -104,7 +104,7 @@ app.delete('/delete-bet/:bet_id', (req, res) => {
 
 app.get('/user-info/:user_id', (req, res) => {
     const userId = req.params.user_id;
-    const sql = "SELECT `name`, `email` FROM `login` WHERE `user_id` = ?";
+    const sql = "SELECT `name`, `email` FROM `login` WHERE `id` = ?";
     db.query(sql, [userId], (err, data) => {
         if (err) {
             return res.status(500).json({ error: err.message });
@@ -139,49 +139,14 @@ app.get('/login/:user_id', (req, res) => {
     });
 });
 */
-/*
-app.get('/bets/:user_id', (req, res) => {
-    const sql = "SELECT `name`, `price`, `time` FROM bets WHERE `user_id` = ?";
-    db.query(sql, [req.body.id], (err, data) => {
-        if (err) {
-            return res.status(500).json({error: err.message});
-        }
-        if (data.length > 0) {
-            return res.status(200).json({
-                data,
-                msg: "Success"
-            });
-        } else {
-            return res.status(401).json("Failed");
-        }
-        
-    });
-});
-*/
-/*
-app.post('/bets', (req, res) => {
-    const sql = "SELECT * FROM bets WHERE `user_id` = ?"
-    db.query(sql, [req.body.team, req.body.price], (err, data) => {
-        if (err) {
-            return res.status(500).json({error: err.message});
-        }
-        if (data.length > 0) {
-            return res.status(200).json("Success");
-        } else {
-            return res.status(401).json("Failed");
-        }
-    });
-});
-*/
+
+
+
+
 app.get('/profile', (req, res) => {
     res.status(200).json({info: 'Random'});
 });
-/*
-app.get('/profile/email', (req, res) => {
-    const sql = "SELECT `email` FROM table WHERE"
-    res.status(200).json({info: 'Random'});
-});
-*/
+
 
 app.listen(8081, () => {
     console.log("Listening on port 8081");
